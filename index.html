@@ -1,0 +1,1128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aniket Singh | Research Portfolio</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Poppins, sans-serif;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      :root {
+        --accent: #00bcd4;
+        --bg: #fff;
+        --text: #111;
+        --card: rgba(255, 255, 255, 0.08);
+      }
+      body {
+        background: #0b1220;
+        color: #fff;
+      }
+      nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 8%;
+        backdrop-filter: blur(10px);
+        background: rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+      }
+      .edu-timeline {
+        position: relative;
+        max-width: 900px;
+        margin: auto;
+      }
+
+      .edu-timeline::before {
+        content: "";
+        position: absolute;
+        left: 120px;
+        top: 0;
+        width: 4px;
+        height: 100%;
+        background: #00bcd4;
+      }
+
+      .edu-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 50px;
+        position: relative;
+      }
+      .edu-year {
+        width: 150px;
+        white-space: nowrap;
+        font-weight: 700;
+        color: #00bcd4;
+        position: relative;
+      }
+
+      /* horizontal connector line */
+
+      .edu-year::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 120px;
+        width: 50px;
+        height: 2px;
+        background: #00bcd4;
+        transform: translateY(-50%);
+      }
+
+      .edu-year::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 170px;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: #00bcd4;
+
+        transform: translate(-50%, -50%);
+
+        box-shadow: 0 0 0 rgba(0, 188, 212, 0.6);
+
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(0, 188, 212, 0.6);
+        }
+
+        70% {
+          box-shadow: 0 0 0 15px rgba(0, 188, 212, 0);
+        }
+
+        100% {
+          box-shadow: 0 0 0 0 rgba(0, 188, 212, 0);
+        }
+      }
+      .edu-item {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: all 0.8s ease;
+      }
+
+      .edu-item.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .edu-content {
+        margin-left: 50px;
+        padding: 25px;
+        flex: 1;
+
+        background: rgba(255, 255, 255, 0.08);
+
+        border-radius: 20px;
+
+        backdrop-filter: blur(10px);
+      }
+
+      .logo {
+        font-weight: 700;
+      }
+      .nav-links {
+        display: flex;
+        gap: 20px;
+        list-style: none;
+      }
+      .nav-links a {
+        color: #fff;
+        text-decoration: none;
+      }
+      .theme-toggle {
+        cursor: pointer;
+      }
+      .hero {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 20px;
+        background:
+          radial-gradient(
+            circle at 20% 20%,
+            rgba(0, 188, 212, 0.25),
+            transparent 30%
+          ),
+          radial-gradient(
+            circle at 80% 70%,
+            rgba(255, 0, 150, 0.15),
+            transparent 30%
+          ),
+          linear-gradient(135deg, #0f172a, #111827, #020617);
+        position: relative;
+        overflow: hidden;
+      }
+      .hero h1 {
+        font-size: 4rem;
+      }
+      .hero span {
+        color: var(--accent);
+      }
+      .hero p {
+        max-width: 800px;
+        margin: 20px auto;
+      }
+      .hero-content {
+        justify-content: space-between;
+        align-items: center;
+      }
+      .btn {
+        display: inline-block;
+        padding: 12px 24px;
+        background: var(--accent);
+        color: #fff;
+        text-decoration: none;
+        border-radius: 30px;
+        margin: 10px;
+      }
+      .section {
+        padding: 100px 10%;
+      }
+      .section-title {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 50px;
+      }
+      .about-section {
+        background: linear-gradient(
+          135deg,
+          rgba(0, 188, 212, 0.08),
+          rgba(0, 188, 212, 0.02)
+        );
+      }
+      .education-section {
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        background-size: 40px 40px;
+      }
+      .research-section {
+        background:
+          radial-gradient(
+            circle at top right,
+            rgba(0, 188, 212, 0.15),
+            transparent 40%
+          ),
+          radial-gradient(
+            circle at bottom left,
+            rgba(255, 0, 150, 0.08),
+            transparent 40%
+          );
+      }
+      .project-section {
+        background: #0f172a;
+        background-image: radial-gradient(
+          circle at 25px 25px,
+          rgba(0, 188, 212, 0.15) 2px,
+          transparent 0
+        );
+        background-size: 50px 50px;
+      }
+      .skills-section {
+        background: linear-gradient(-45deg, #0f172a, #112240, #1e293b, #0f172a);
+        background-size: 400% 400%;
+        animation: g 12s ease infinite;
+      }
+      .award-section {
+        background: radial-gradient(
+          circle,
+          rgba(255, 215, 0, 0.15),
+          transparent 60%
+        );
+      }
+      .project-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+      }
+
+      .project-card {
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(12px);
+
+        border-radius: 24px;
+        padding: 30px;
+
+        border: 1px solid rgba(255, 255, 255, 0.08);
+
+        transition: 0.4s ease;
+      }
+
+      .project-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 188, 212, 0.15);
+      }
+
+      .project-icon {
+        font-size: 3rem;
+        margin-bottom: 20px;
+      }
+
+      .project-card h3 {
+        color: #00bcd4;
+        margin-bottom: 15px;
+      }
+
+      .project-card p {
+        line-height: 1.7;
+        margin-bottom: 20px;
+      }
+
+      .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .project-tags span {
+        padding: 8px 14px;
+        border-radius: 20px;
+        background: rgba(0, 188, 212, 0.15);
+        color: #00d5ff;
+        font-size: 0.9rem;
+      }
+      .contact-section {
+        background: linear-gradient(135deg, #0f172a, #111827);
+      }
+      @keyframes g {
+        0% {
+          background-position: 0 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0 50%;
+        }
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+      }
+      .section-subtitle {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto 50px;
+        color: #cbd5e1;
+        font-size: 1.1rem;
+      }
+
+      .card,
+      .timeline-item,
+      .award-card,
+      .contact-card {
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 25px;
+        border-radius: 20px;
+        transition: 0.4s;
+        max-width: 700px; /* limit width */
+        margin: 0 auto; /* center card */
+        padding: 30px;
+        border-radius: 20px;
+        text-align: center; /* center text */
+      }
+      .contact-container {
+        max-width: 900px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+
+      .contact-item {
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 24px;
+        padding: 35px;
+        text-align: center;
+        transition: 0.4s ease;
+      }
+
+      .contact-item:hover {
+        transform: translateY(-8px);
+
+        box-shadow: 0 15px 35px rgba(0, 188, 212, 0.15);
+      }
+
+      .contact-icon {
+        font-size: 3rem;
+
+        margin-bottom: 15px;
+      }
+
+      .contact-item h3 {
+        color: #00bcd4;
+
+        margin-bottom: 10px;
+      }
+
+      .contact-item p {
+        color: #cbd5e1;
+
+        margin-bottom: 20px;
+      }
+
+      .contact-btn {
+        display: inline-block;
+
+        padding: 12px 24px;
+
+        border-radius: 50px;
+
+        text-decoration: none;
+
+        color: white;
+
+        background: #00bcd4;
+
+        font-weight: 600;
+      }
+
+      .linkedin {
+        background: #0077b5;
+      }
+
+      .research-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        max-width: 1400px;
+        margin: 50px auto 0;
+      }
+
+      .research-card {
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+
+        border-radius: 24px;
+        padding: 30px;
+
+        text-align: center;
+
+        transition: 0.4s ease;
+      }
+
+      .research-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 188, 212, 0.2);
+      }
+
+      .research-card img {
+        width: 80px;
+        height: 80px;
+        object-fit: contain;
+        margin-bottom: 20px;
+      }
+
+      .research-card h3 {
+        color: #00bcd4;
+        margin-bottom: 10px;
+      }
+
+      .research-card h4 {
+        margin-bottom: 15px;
+        font-weight: 500;
+        color: #ddd;
+      }
+
+      .research-card p {
+        line-height: 1.7;
+      }
+      .linkedin-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0, 119, 181, 0.4);
+      }
+      .card:hover {
+        transform: translateY(-10px);
+      }
+      .timeline {
+        max-width: 800px;
+        margin: auto;
+      }
+      .timeline-item {
+        margin-bottom: 20px;
+        border-left: 4px solid var(--accent);
+      }
+      .stats-section {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        padding: 80px 10%;
+        background: #020617;
+      }
+      .stat {
+        text-align: center;
+      }
+      .stat h2 {
+        font-size: 3rem;
+        color: var(--accent);
+      }
+      .progress {
+        height: 12px;
+        background: #333;
+        border-radius: 20px;
+        overflow: hidden;
+      }
+      .progress div {
+        height: 100%;
+        background: var(--accent);
+      }
+      .skill {
+        margin: 20px 0;
+      }
+      footer {
+        text-align: center;
+        padding: 30px;
+        background: #020617;
+      }
+      .about-card {
+        max-width: 1000px;
+        margin: auto;
+
+        padding: 40px;
+
+        background: rgba(255, 255, 255, 0.08);
+
+        backdrop-filter: blur(15px);
+
+        border: 1px solid rgba(255, 255, 255, 0.1);
+
+        border-radius: 25px;
+
+        text-align: center;
+      }
+
+      .about-header h3 {
+        font-size: 2rem;
+
+        color: #00bcd4;
+
+        margin-bottom: 10px;
+      }
+
+      .about-header span {
+        color: #cbd5e1;
+
+        font-size: 1rem;
+      }
+
+      .about-text {
+        margin: 30px auto;
+
+        max-width: 800px;
+
+        font-size: 1.15rem;
+
+        line-height: 1.8;
+      }
+
+      .about-highlights {
+        display: grid;
+
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+
+        gap: 20px;
+
+        margin-top: 30px;
+      }
+      .edu-content {
+        margin-left: 50px;
+        padding: 25px;
+        flex: 1;
+
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+
+        border: 1px solid rgba(255, 255, 255, 0.05);
+
+        transition:
+          transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+          box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+          border-color 0.5s ease;
+      }
+
+      .edu-content:hover {
+        transform: translateX(8px) translateY(-3px);
+
+        border-color: rgba(0, 188, 212, 0.35);
+
+        box-shadow:
+          0 10px 25px rgba(0, 188, 212, 0.12),
+          0 0 30px rgba(0, 188, 212, 0.08);
+      }
+      .edu-content {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .edu-content::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -150%;
+
+        width: 60%;
+        height: 100%;
+
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.08),
+          transparent
+        );
+
+        transition: left 0.8s ease;
+      }
+      .email-btn {
+        display: inline-block;
+        padding: 12px 24px;
+        background: #00bcd4;
+        color: white;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: 0.3s;
+      }
+      .contact-logo {
+        width: 60px;
+        height: 60px;
+        object-fit: contain;
+        margin-bottom: 15px;
+      }
+
+      .email-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0, 188, 212, 0.3);
+      }
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        margin-top: 50px;
+      }
+
+      .skill-card {
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(12px);
+
+        padding: 30px;
+
+        border-radius: 24px;
+
+        border: 1px solid rgba(255, 255, 255, 0.08);
+
+        transition: 0.4s;
+      }
+
+      .skill-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 35px rgba(0, 188, 212, 0.15);
+      }
+
+      .skill-card h3 {
+        color: #00bcd4;
+        margin-bottom: 20px;
+      }
+
+      .skill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .skill-tags span {
+        padding: 8px 14px;
+        border-radius: 20px;
+
+        background: rgba(0, 188, 212, 0.15);
+
+        color: #00d5ff;
+
+        font-size: 0.9rem;
+      }
+      .edu-content:hover::before {
+        left: 150%;
+      }
+      .highlight {
+        padding: 25px;
+
+        background: rgba(255, 255, 255, 0.05);
+
+        border-radius: 18px;
+
+        transition: 0.3s;
+      }
+
+      .highlight:hover {
+        transform: translateY(-8px);
+
+        box-shadow: 0 10px 30px rgba(0, 188, 212, 0.2);
+      }
+
+      .highlight h4 {
+        margin: 10px 0;
+
+        color: #00bcd4;
+      }
+      .hero-tags {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin: 30px 0;
+      }
+
+      .hero-tags span {
+        padding: 10px 18px;
+        border-radius: 30px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+      }
+      .particles span {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background: var(--accent);
+        border-radius: 50%;
+        animation: float 12s linear infinite;
+      }
+      #typing {
+        color: rgb(0, 251, 255);
+        font-size: 1.2rem;
+        line-height: 1.7;
+      }
+
+      #typing::after {
+        content: "|";
+        color: #00bcd4;
+        animation: blink 0.7s infinite;
+      }
+
+      @keyframes blink {
+        50% {
+          opacity: 0;
+        }
+      }
+      @keyframes float {
+        0% {
+          transform: translateY(100vh);
+        }
+        100% {
+          transform: translateY(-100px);
+        }
+      }
+      .particles span:nth-child(1) {
+        left: 10%;
+      }
+      .particles span:nth-child(2) {
+        left: 30%;
+      }
+      .particles span:nth-child(3) {
+        left: 50%;
+      }
+      .particles span:nth-child(4) {
+        left: 70%;
+      }
+      .particles span:nth-child(5) {
+        left: 90%;
+      }
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+      }
+      @media (max-width: 768px) {
+        .research-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="logo">Aniket Singh</div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <section class="hero">
+      <div class="particles">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <div>
+        <h1>Aniket <span>Singh</span></h1>
+        <h2>Senior Project Associate, IIT Jodhpur</h2>
+        <p>
+          <span id="typing"></span>
+        </p>
+        <div class="hero-tags">
+          <span>🧫 Biofilms</span>
+          <span>🦠 Antimicrobial Resistance</span>
+          <span>🧬 Functional Amyloids</span>
+          <span>🔬 Protein Biochemistry</span>
+          <span>💻 Bioinformatics</span>
+        </div>
+
+        <a class="btn" href="#contact">Contact Me</a>
+      </div>
+    </section>
+
+    <section id="about" class="section about-section">
+      <h2 class="section-title">About</h2>
+      <div class="about-card">
+        <div class="about-header">
+          <h3>👋 Hello, I'm Aniket Singh</h3>
+        </div>
+
+        <p class="about-text">
+          Gold Medalist in Medical Biotechnology currently working on
+          <strong
+            >molecular interventions against bacterial biofilms to combat
+            antimicrobial resistance</strong
+          >.
+        </p>
+
+        <div class="about-highlights">
+          <div class="highlight">
+            🏆
+            <h4>Gold Medalist</h4>
+            <p>M.Sc. Biotechnology</p>
+          </div>
+
+          <div class="highlight">
+            🔬
+            <h4>Current Research</h4>
+            <p>CsgA Amyloids and Molecular interventions</p>
+          </div>
+
+          <div class="highlight">
+            🦠
+            <h4>Focus Area</h4>
+            <p>Antimicrobial resitance and Biofilms</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" class="section education-section">
+      <h2 class="section-title">Journey</h2>
+
+      <div class="edu-timeline">
+        <div class="edu-item">
+          <div class="edu-year">2026-Present</div>
+          <div class="edu-content">
+            <h3>Senior Project Associate</h3>
+            <p>Indian Institute of Technology, Jodhpur</p>
+          </div>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-year">2023–2025</div>
+          <div class="edu-content">
+            <h3>M.Sc. Biotechnology 🏆</h3>
+            <p>Gujarat Biotechnology University</p>
+            <span>Gold Medalist • CPI 9.05</span>
+          </div>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-year">2020–2023</div>
+          <div class="edu-content">
+            <h3>B.Sc. (Hons.) Biochemistry</h3>
+            <p>University of Delhi</p>
+            <span>CGPA 8.92</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="research" class="section research-section">
+      <h2 class="section-title">Research & Professional Experience</h2>
+
+      <p class="section-subtitle">
+        My journey across antimicrobial resistance, biofilms, diagnostics,
+        protein biochemistry and functional amyloid research.
+      </p>
+
+      <div class="research-grid">
+        <!-- IIT Jodhpur -->
+        <div class="research-card">
+          <img src="images/iitj.png" alt="IIT Jodhpur" />
+          <h3>IIT Jodhpur</h3>
+          <h4>Senior Project Associate</h4>
+          <p>
+            Investigating bacterial functional amyloid protein
+            <strong>CsgA</strong> and its inhibition using
+            <strong>α-Crystallin</strong>. Studying aggregation kinetics,
+            molecular interactions and the mechanism of amyloid inhibition for
+            early-stage arrest of bacterial biofilms to combat antimicrobial
+            resistance.
+          </p>
+        </div>
+
+        <!-- GBU -->
+        <div class="research-card">
+          <img src="images/gbu.png" alt="GBU" />
+          <h3>Gujarat Biotechnology University</h3>
+          <h4>M.Sc Dissertation</h4>
+          <p>
+            Screened a library of 2054 compounds against multidrug-resistant
+            uropathogens and identified lead molecules for drug repurposing
+            against antimicrobial-resistant urinary tract infections.
+          </p>
+        </div>
+
+        <!-- Edinburgh -->
+        <div class="research-card">
+          <img src="images/uoe.jpg" alt="University of Edinburgh" />
+          <h3>University of Edinburgh</h3>
+          <h4>Visiting Research Student</h4>
+          <p>
+            Developed a hydrogel bead-based colorimetric assay for rapid
+            antimicrobial resistance detection, reducing diagnostic time from 48
+            hours to 6 hours.
+          </p>
+        </div>
+
+        <!-- IIT BHU -->
+        <div class="research-card">
+          <img src="images/iitbhu.png" alt="IIT BHU" />
+          <h3>IIT-BHU</h3>
+          <h4>Research Intern</h4>
+          <p>
+            Extracted and purified silk fibroin protein, quantified yield and
+            characterized morphology using Scanning Electron Microscopy (SEM).
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <h2 class="section-title">Research Projects</h2>
+
+      <div class="project-grid">
+        <div class="project-card">
+          <div class="project-icon">🧬</div>
+
+          <h3>Curli Amyloid Inhibition</h3>
+
+          <p>
+            Investigating CsgA amyloid aggregation and inhibition by
+            α-Crystallin to understand molecular mechanisms governing bacterial
+            biofilm formation.
+          </p>
+
+          <div class="project-tags">
+            <span>CsgA</span>
+            <span>ThT Assay</span>
+            <span>Biofilms</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-icon">🔬</div>
+
+          <h3>Protein Expression & Purification</h3>
+
+          <p>
+            Overexpression and purification of bacterial amyloid proteins and
+            homologs using recombinant protein expression systems.
+          </p>
+
+          <div class="project-tags">
+            <span>His-tag</span>
+            <span>Ni-NTA</span>
+            <span>SDS-PAGE</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-icon">🦠</div>
+
+          <h3>Rapid AMR Diagnostics</h3>
+
+          <p>
+            Developed hydrogel bead-based colorimetric assay reducing
+            antimicrobial resistance detection time from 48 hours to 6 hours.
+          </p>
+
+          <div class="project-tags">
+            <span>Hydrogel</span>
+            <span>AMR</span>
+            <span>Diagnostics</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <h2 class="section-title">Technical Skills</h2>
+
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>🔬 Wet Lab</h3>
+          <div class="skill-tags">
+            <span>Protein Purification</span>
+            <span>SDS-PAGE</span>
+            <span>PCR</span>
+            <span>DNA Isolation</span>
+            <span>MIC/MBC</span>
+            <span>ThT Assay</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>🦠 Microbiology</h3>
+          <div class="skill-tags">
+            <span>Biofilms</span>
+            <span>AMR</span>
+            <span>Drug Screening</span>
+            <span>Bacterial Culture</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>💻 Bioinformatics</h3>
+          <div class="skill-tags">
+            <span>RNA-seq</span>
+            <span>Linux</span>
+            <span>R</span>
+            <span>Python</span>
+            <span>Kraken2</span>
+            <span>DESeq2</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>📊 Analysis</h3>
+          <div class="skill-tags">
+            <span>GraphPad Prism</span>
+            <span>Statistics</span>
+            <span>Data Visualization</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact-section">
+      <h2 class="section-title">Let's Connect</h2>
+
+      <div class="contact-container">
+        <div class="contact-item">
+          <img src="images/gmail.png" class="contact-logo" alt="LinkedIn" />
+          <h3>Email</h3>
+          <p>aniket729singh@gmail.com</p>
+
+          <a
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=aniket729singh@gmail.com&su=Research%20Inquiry"
+            class="contact-btn"
+            target="_blank"
+          >
+            Send Email
+          </a>
+        </div>
+
+        <div class="contact-item">
+          <img src="images/linkedin.png" class="contact-logo" alt="LinkedIn" />
+          <h3>LinkedIn</h3>
+          <p>Connect professionally</p>
+
+          <a
+            href="https://www.linkedin.com/in/aniket-729-singh"
+            target="_blank"
+            class="contact-btn linkedin"
+          >
+            View Profile
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer>© 2026 Aniket Singh</footer>
+
+    <script>
+      document.querySelectorAll(".counter").forEach((counter) => {
+        const update = () => {
+          const target = +counter.dataset.target;
+          const count = +counter.innerText;
+          const inc = Math.ceil(target / 50);
+          if (count < target) {
+            counter.innerText = count + inc;
+            setTimeout(update, 40);
+          } else counter.innerText = target;
+        };
+        update();
+      });
+    </script>
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("show");
+            }
+          });
+        },
+        { threshold: 0.2 },
+      );
+
+      document
+        .querySelectorAll(".edu-item")
+        .forEach((item) => observer.observe(item));
+      const text =
+        "Investigating bacterial functional amyloids and molecular strategies to disrupt biofilm formation and combat antimicrobial resistance.";
+
+      const typingElement = document.getElementById("typing");
+
+      let index = 0;
+
+      function typeText() {
+        if (index < text.length) {
+          typingElement.innerHTML += text.charAt(index);
+
+          index++;
+
+          setTimeout(typeText, 35);
+        }
+      }
+
+      typeText();
+    </script>
+  </body>
+</html>
