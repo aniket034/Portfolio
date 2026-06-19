@@ -767,6 +767,206 @@
           grid-template-columns: 1fr;
         }
       }
+      /* =========================
+   MOBILE RESPONSIVE DESIGN
+   ========================= */
+
+      @media (max-width: 902px) {
+        .section {
+          padding: 80px 5%;
+        }
+
+        .hero h1 {
+          font-size: 3rem;
+        }
+
+        .research-grid,
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .project-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .contact-container {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Mobile */
+      @media (max-width: 768px) {
+        nav {
+          padding: 15px 5%;
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+        .section-title {
+          font-size: 2rem;
+          margin-bottom: 35px;
+        }
+
+        .hero {
+          min-height: 100vh;
+          padding: 100px 20px 50px;
+        }
+
+        .hero h1 {
+          font-size: 2.5rem;
+          line-height: 1.2;
+        }
+
+        .hero h2 {
+          font-size: 1.3rem;
+          margin-top: 10px;
+        }
+
+        .hero p {
+          font-size: 1rem;
+        }
+
+        .hero-tags {
+          gap: 8px;
+        }
+
+        .hero-tags span {
+          font-size: 0.85rem;
+          padding: 8px 14px;
+        }
+
+        /* About */
+
+        .about-card {
+          padding: 25px;
+        }
+
+        .about-text {
+          font-size: 1rem;
+        }
+
+        .about-highlights {
+          grid-template-columns: 1fr;
+        }
+
+        /* Education Timeline */
+
+        .edu-timeline::before {
+          left: 20px;
+        }
+
+        .edu-item {
+          flex-direction: column;
+          align-items: flex-start;
+          padding-left: 40px;
+        }
+        .logo {
+          display: none;
+        }
+        .edu-year {
+          width: auto;
+          margin-bottom: 15px;
+        }
+
+        .edu-year::after {
+          display: none;
+        }
+
+        .edu-year::before {
+          left: -20px;
+          width: 16px;
+          height: 16px;
+        }
+
+        .edu-content {
+          width: 100%;
+          margin-left: 0;
+        }
+
+        /* Research */
+
+        .research-card {
+          padding: 25px;
+        }
+
+        .research-card img {
+          width: 60px;
+          height: 60px;
+        }
+
+        /* Projects */
+
+        .project-card {
+          padding: 25px;
+        }
+
+        /* Skills */
+
+        .skill-card {
+          padding: 25px;
+        }
+
+        /* Contact */
+
+        .contact-item {
+          padding: 25px;
+        }
+
+        .contact-logo {
+          width: 50px;
+          height: 50px;
+        }
+
+        footer {
+          font-size: 0.9rem;
+        }
+        nav {
+          display: none;
+        }
+      }
+
+      /* Small Phones */
+
+      @media (max-width: 480px) {
+        .hero h1 {
+          font-size: 2rem;
+        }
+
+        .hero h2 {
+          font-size: 1.1rem;
+        }
+
+        #typing {
+          font-size: 1rem;
+        }
+
+        .btn {
+          display: block;
+          width: 100%;
+          max-width: 250px;
+          margin: 15px auto;
+        }
+
+        .project-tags,
+        .skill-tags {
+          justify-content: center;
+        }
+
+        .project-tags span,
+        .skill-tags span {
+          font-size: 0.8rem;
+        }
+
+        .contact-btn {
+          width: 100%;
+          text-align: center;
+        }
+        .nav-links {
+          display: none;
+        }
+      }
     </style>
   </head>
   <body>
